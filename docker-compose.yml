@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: scm_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: supply_chain_db
+      POSTGRES_USER: scm_admin
+      POSTGRES_PASSWORD: startup_secure_password_123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
